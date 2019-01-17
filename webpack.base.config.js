@@ -9,7 +9,10 @@ module.exports = {
         path: path.resolve(__dirname, 'dist')
     },
     resolve: {
-        extensions: [".tsx", ".ts", ".jsx", ".js", ".json"]
+        extensions: [".tsx", ".ts", ".jsx", ".js", ".json"],
+        alias: {
+            resources: path.resolve(__dirname, 'resources')
+        }
     },
     module: {
         rules: [
@@ -19,12 +22,21 @@ module.exports = {
                 use: {
                     loader: 'babel-loader'
                 }
+            },
+            {
+                test: /\.(jpg|png|svg|gif)$/,
+                use: {
+                    loader: 'file-loader',
+                    options: {
+                        name: '[path][name].[ext]'
+                    }
+                }
             }
         ]
     },
     plugins: [
         new HtmlWebpackPlugin({
-            template: "./src/index.html",
+            template: "./resources/index.html",
             minify: {
                 collapseInlineTagWhitespace: true,
                 collapseWhitespace: true,
