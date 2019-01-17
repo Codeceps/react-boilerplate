@@ -18,6 +18,6 @@ import ReactDOM from 'react-dom';
 import App from './components/App';
 
 ReactDOM.render(
-    <App message="Using Webpack, Babel, and Typescript"/>,
+    <App message="React boilerplate using Webpack, Babel, and Typescript"/>,
     document.getElementById('root')
 );

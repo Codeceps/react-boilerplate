@@ -1,0 +1,33 @@
+@font-face {
+    font-family: 'Pacifico';
+    src: url('~resources/fonts/Pacifico.ttf');
+}
+
+#logo {
+    background-color: black;
+}
+
+#logo-img {
+    widows: 120px;
+    height: 120px;
+    margin: auto;
+    display: block;
+}
+
+.message {
+    font-family: 'Pacifico';
+    color: cadetblue;
+    text-align: center;
+}
+
+.count {
+    font-family: 'Pacifico';
+    font-size: 120%;
+    color: chocolate;
+    text-align: center;
+}
+
+.button {
+    margin: auto;
+    display: block;
+}
