@@ -7,9 +7,10 @@
     background-color: black;
 }
 
+$size: 120px;
 #logo-img {
-    widows: 120px;
-    height: 120px;
+    widows: $size;
+    height: $size;
     margin: auto;
     display: block;
 }

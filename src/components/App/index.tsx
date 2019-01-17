@@ -4,7 +4,7 @@ import {hot} from 'react-hot-loader/root';
 import react_logo_svg from 'resources/images/react_logo.svg';
 
 
-import './App.css';
+import './App.scss';
 
 
 export interface AppProps {
