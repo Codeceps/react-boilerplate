@@ -1,38 +1,17 @@
-const path = require('path');
-const webpack = require('webpack');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+/**
+ * Webpack split flie configuration taken from this Medium article:
+ *      https://medium.freecodecamp.org/a-complete-react-boilerplate-tutorial-from-zero-to-hero-20023e086c4a
+ */
 
-module.exports = {
-    mode: 'development',
-    devServer: {
-        host: '0.0.0.0',
-        port: 3000,
-        hot: true,
-        overlay: true
-    },
-    entry: './src/index.tsx',
-    output: {
-        filename: 'bundle.js',
-        path: path.resolve(__dirname, 'dist')
-    },
-    resolve: {
-        extensions: [".tsx", ".ts", ".jsx", ".js", ".json"]
-    },
-    module: {
-        rules: [
-            {
-                test: /\.(t|j)sx?$/,
-                exclude: /node_modules/,
-                use: {
-                    loader: 'babel-loader'
-                }
-            }
-        ]
-    },
-    plugins: [
-        new webpack.HotModuleReplacementPlugin(),
-        new HtmlWebpackPlugin({
-            template: "./src/index.html"
-        })
-    ]
+const webpackMerge = require('webpack-merge');
+
+const baseConfig = require('./webpack.base.config');
+
+const envs = {
+    development: 'dev',
+    production: 'prod'
 }
+
+const env = envs[process.env.NODE_ENV || 'development'];
+const envConfig = require(`./webpack.${env}.config`);
+module.exports = webpackMerge(baseConfig, envConfig);
