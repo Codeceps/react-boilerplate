@@ -3,11 +3,17 @@ console.log(`AUTHOR = ${process.env.AUTHOR}`);
 
 const presets = [
     ['@babel/preset-env', {
-        debug: true
+        debug: true,
+        useBuiltIns: 'usage'
     }],
-    ['@babel/preset-typescript', {}]
+    '@babel/preset-react',
+    '@babel/preset-typescript'
 ];
-const plugins = [];
+const plugins = [
+    'react-hot-loader/babel',
+    '@babel/plugin-proposal-class-properties',
+    '@babel/plugin-proposal-object-rest-spread'
+];
 
 
 module.exports = {

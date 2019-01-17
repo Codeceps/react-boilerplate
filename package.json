@@ -4,18 +4,35 @@
   "description": "React boilerplate",
   "private": true,
   "version": "0.0.1",
-  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "webpack-dev-server",
+    "build": "webpack",
     "babel-env": "node ./scripts/babel_env.js extended"
+  },
+  "dependencies": {
+    "@babel/polyfill": "7.2.5",
+    "react": "16.7.0",
+    "react-dom": "16.7.0",
+    "react-hot-loader": "4.6.3"
   },
   "devDependencies": {
     "@babel/cli": "7.2.3",
     "@babel/core": "7.2.2",
+    "@babel/plugin-proposal-class-properties": "7.2.3",
+    "@babel/plugin-proposal-object-rest-spread": "7.2.0",
     "@babel/preset-env": "7.2.3",
+    "@babel/preset-react": "7.0.0",
     "@babel/preset-typescript": "7.1.0",
     "@types/node": "10.12.18",
-    "cross-env": "5.2.0"
+    "@types/react": "16.7.19",
+    "@types/react-dom": "16.0.11",
+    "babel-loader": "8.0.5",
+    "cross-env": "5.2.0",
+    "html-webpack-plugin": "3.2.0",
+    "webpack": "4.28.4",
+    "webpack-cli": "3.2.1",
+    "webpack-dev-server": "3.1.14"
   },
   "license": "ISC",
   "repository": {
