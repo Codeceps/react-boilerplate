@@ -1,13 +1,18 @@
+@import '~resources/css/Variables';
+
+:root {
+    --mainColor: #000000ff;
+}
+
 @font-face {
     font-family: 'Pacifico';
     src: url('~resources/fonts/Pacifico.ttf');
 }
 
 #logo {
-    background-color: black;
+    background-color: var(--mainColor);
 }
 
-$size: 120px;
 #logo-img {
     widows: $size;
     height: $size;
@@ -15,20 +20,38 @@ $size: 120px;
     display: block;
 }
 
-.message {
-    font-family: 'Pacifico';
-    color: cadetblue;
+@mixin font-align($font-name) {
+    font-family: $font-name;
     text-align: center;
+}
+
+.message {
+    @include font-align($font-pacifico);
+    color: cadetblue;
 }
 
 .count {
-    font-family: 'Pacifico';
+    @include font-align($font-pacifico);
     font-size: 120%;
     color: chocolate;
-    text-align: center;
 }
 
-.button {
-    margin: auto;
+@custom-selector :--cwidget .centered-widget;
+
+:--cwidget {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: auto;
+    margin-right: auto;
     display: block;
+}
+
+::placeholder {
+    color: gray;
+}
+
+@media only screen and (max-width: 600px) {
+    body {
+        background-color: black;
+    }
 }

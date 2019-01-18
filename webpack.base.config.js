@@ -30,21 +30,10 @@ module.exports = {
             {
                 test: /\.(sa|sc|c)ss$/,
                 use: [
-                    {
-                        loader: inProduction ? miniCssExtractLoader : 'style-loader'
-                    },
-                    {
-                        loader: 'css-loader',
-                        options: {
-                            sourceMap: true
-                        }
-                    },
-                    {
-                        loader: 'sass-loader',
-                        options: {
-                            sourceMap: true
-                        }
-                    }
+                    { loader: inProduction ? miniCssExtractLoader : 'style-loader' },
+                    { loader: 'css-loader', options: { sourceMap: true, importLoaders: 2 } },
+                    { loader: 'postcss-loader' , options: { sourceMap: true } },
+                    { loader: 'sass-loader' , options: { sourceMap: true } }
                 ]
             },
             {

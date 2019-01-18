@@ -45,7 +45,8 @@ class App extends React.Component<AppProps, AppState> {
                     <h1 className='message'>{this.props.message}</h1>
 
                     <p className="count">Click count: {clickCount}</p>
-                    <button className='button' onClick={this.clickListener}>Click Me</button>
+                    <button className='centered-widget' onClick={this.clickListener}>Click Me</button>
+                    <input className='centered-widget' type="text" placeholder='Enter text'/>
                 </div>   
             </div>
         )
