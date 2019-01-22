@@ -1,21 +1,34 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const miniCssExtractLoader = require('mini-css-extract-plugin').loader;
-
+const MiniCssLoader = require('mini-css-extract-plugin').loader;
 
 const inProduction = process.env.NODE_ENV === 'production' ? true : false;
 
 
 module.exports = { 
-    entry: './src/index.tsx',
+    entry: {
+        index: './src/index.tsx'
+    },
     output: {
-        filename: 'main.js',
+        filename: inProduction ? '[name].[chunkhash:16].bundle.js' : '[name].[hash].bundle.js',
         path: path.resolve(__dirname, 'dist')
     },
     resolve: {
         extensions: [".tsx", ".ts", ".jsx", ".js", ".json"],
         alias: {
             resources: path.resolve(__dirname, 'resources')
+        }
+    },
+    optimization: {
+        runtimeChunk: 'single',
+        splitChunks: {
+            cacheGroups: {
+                vendor: {
+                    test: /[\\/]node_modules[\\/]/,
+                    name: 'vendors',
+                    chunks: 'all'
+                }
+            }
         }
     },
     module: {
@@ -30,7 +43,7 @@ module.exports = {
             {
                 test: /\.(sa|sc|c)ss$/,
                 use: [
-                    { loader: inProduction ? miniCssExtractLoader : 'style-loader' },
+                    { loader: inProduction ? MiniCssLoader : 'style-loader' },
                     { loader: 'css-loader', options: { sourceMap: true, importLoaders: 2 } },
                     { loader: 'postcss-loader' , options: { sourceMap: true } },
                     { loader: 'sass-loader' , options: { sourceMap: true } }

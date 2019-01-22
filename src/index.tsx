@@ -1,23 +1,26 @@
+/**
+    Polyfill for IE11
+ */
+import 'core-js/modules/es6.object.assign';
 
 /**
- * If the 'useBuiltIns' option of the @babel/preset-env is set to 'entry',
- * the polyfill must be the first thing included in the app's entry file
- *      import '@babel/polyfill';
- * 
- * If the 'useBuiltIns' is set to 'usage' and the polyfill is missing,
- * it can be individualy imported here. For example to include the polyfill
- * for the Object.assign required for older browsers like IE11:
- *      import 'core-js/modules/es6.object.assign';
- */
+    Currently, @babel/preset-env is unaware that using import() with Webpack relies on Promise internally. 
+    Environments which do not have builtin support for Promise, like Internet Explorer, 
+    will require both the promise and iterator polyfills be added manually.
+*/
+import "core-js/modules/es6.promise";
+import "core-js/modules/es6.array.iterator";
 
-import 'core-js/modules/es6.object.assign';
 
 import React from 'react';
 import ReactDOM from 'react-dom';
 
 import App from './components/App';
 
+
+const message = 'React Boilerplate Project';
+
 ReactDOM.render(
-    <App message="React boilerplate using Webpack, Babel, and Typescript"/>,
+    <App message={message}/>,
     document.getElementById('root')
 );

@@ -1,9 +1,11 @@
 import React from 'react';
+import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 import {hot} from 'react-hot-loader/root';
+
 //@ts-ignore
 import react_logo_svg from 'resources/images/react_logo.svg';
-
-
+import NavBar from '../NavBar';
+import {Home, LazyTest} from '../Route';
 import './App.scss';
 
 
@@ -11,47 +13,36 @@ export interface AppProps {
     message: string
 }
 
-export interface AppState {
-    clickCount: number
-}
-
-class App extends React.Component<AppProps, AppState> {
-
-    state: AppState = {
-        clickCount: 0
-    }
+class App extends React.Component<AppProps> {
 
     constructor(props: AppProps) {
         super(props);
     }
 
+    render() {      
+        const {message} = this.props;
 
-    clickListener = () => {
-        this.setState((prev) => ({
-            clickCount: prev.clickCount + 1
-        }))
-    }
-
-    render() {
-        const {clickCount} = this.state;
-        
         return (
             <div>
-                <div id='logo'>
+                <div id='logo-container'>
                     <img id='logo-img' src={react_logo_svg}/>
                 </div>
+                <div id='header-text'>
+                    {message}
+                </div>
 
-                <div id="content">
-                    <h1 className='message'>{this.props.message}</h1>
-
-                    <p className="count">Click count: {clickCount}</p>
-                    <button className='centered-widget' onClick={this.clickListener}>Click Me</button>
-                    <input className='centered-widget' type="text" placeholder='Enter text'/>
-                </div>   
+                <Router>
+                    <>
+                        <NavBar/>
+                        <Switch>
+                            <Route path='/' exact={true} component={() => <Home initialText="None"/>}/>
+                            <Route path='/lazy-test' component={LazyTest}/>
+                        </Switch>
+                    </>
+                </Router>
             </div>
         )
     }
-
 }
 
 

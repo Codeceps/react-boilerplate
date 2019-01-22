@@ -1,6 +1,6 @@
 const CleanWebpackPlugin = require('clean-webpack-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 
 module.exports = {
@@ -18,7 +18,7 @@ module.exports = {
     plugins: [
         new CleanWebpackPlugin('dist'),
         new MiniCssExtractPlugin({
-            filename: 'main.css'
+            chunkFilename: '[name].[contenthash:16].style.css'
         })
     ]
 }

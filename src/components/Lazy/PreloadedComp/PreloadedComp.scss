@@ -1,0 +1,6 @@
+@import '../Lazy.scss';
+
+.lazy-preloaded {
+    @include lazy();
+    color: deeppink;
+}

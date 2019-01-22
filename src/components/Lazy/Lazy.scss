@@ -1,0 +1,18 @@
+$padding: 20px;
+$width: 600px;
+
+@mixin lazy() {
+    display: block;
+    width: $width;
+    margin: 5px auto;
+    padding: $padding $padding;
+    border-style: dashed;
+    font-size: 2em;
+    font-weight: bold;
+    text-align: center;
+}
+
+.lazy {
+    @include lazy();
+    color: rebeccapurple;
+}

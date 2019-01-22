@@ -1,0 +1,6 @@
+@import '../Lazy.scss';
+
+.lazy-prefetched {
+    @include lazy();
+    color: hotpink;
+}

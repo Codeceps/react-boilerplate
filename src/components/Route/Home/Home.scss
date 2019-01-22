@@ -1,0 +1,11 @@
+@import '~resources/css/Variables';
+
+@mixin font-align($font-name) {
+    font-family: $font-name;
+    text-align: center;
+}
+
+#home-title {
+    @include font-align($font-pacifico);
+    color: chocolate;
+}

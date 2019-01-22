@@ -1,44 +1,43 @@
 @import '~resources/css/Variables';
 
-:root {
-    --mainColor: #000000ff;
-}
-
 @font-face {
     font-family: 'Pacifico';
     src: url('~resources/fonts/Pacifico.ttf');
 }
 
-#logo {
+@media only screen and (max-width: 600px) {
+    body {
+        background-color: black;
+    }
+}
+
+
+:root {
+    --mainColor: #000000ff;
+}
+
+#logo-container {
     background-color: var(--mainColor);
 }
 
 #logo-img {
-    widows: $size;
+    width: $size;
     height: $size;
     margin: auto;
     display: block;
 }
 
-@mixin font-align($font-name) {
-    font-family: $font-name;
+#header-text {
+    font-family: 'Pacifico';
+    font-size: 2em;
     text-align: center;
+    color: #61dafbff;
+    background-color: black;
 }
 
-.message {
-    @include font-align($font-pacifico);
-    color: cadetblue;
-}
+@custom-selector :--cw .centered-widget;
 
-.count {
-    @include font-align($font-pacifico);
-    font-size: 120%;
-    color: chocolate;
-}
-
-@custom-selector :--cwidget .centered-widget;
-
-:--cwidget {
+:--cw {
     margin-top: 10px;
     margin-bottom: 10px;
     margin-left: auto;
@@ -48,10 +47,4 @@
 
 ::placeholder {
     color: gray;
-}
-
-@media only screen and (max-width: 600px) {
-    body {
-        background-color: black;
-    }
 }
