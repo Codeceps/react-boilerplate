@@ -2,7 +2,7 @@ import React from 'react';
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 import {hot} from 'react-hot-loader/root';
 
-//@ts-ignore
+// @ts-ignore
 import react_logo_svg from 'resources/images/react_logo.svg';
 import NavBar from '../NavBar';
 import {Home, LazyTest} from '../Route';
@@ -10,9 +10,8 @@ import './App.scss';
 
 import {camelCaseIt} from '../../util/CamelCaser';
 
-
 export interface AppProps {
-    message: string
+    message: string;
 }
 
 class App extends React.Component<AppProps> {
@@ -21,7 +20,7 @@ class App extends React.Component<AppProps> {
         super(props);
     }
 
-    render() {      
+    public render() {
         const {message} = this.props;
 
         return (
@@ -37,8 +36,15 @@ class App extends React.Component<AppProps> {
                     <>
                         <NavBar/>
                         <Switch>
-                            <Route path='/' exact={true} component={() => <Home initialText={camelCaseIt('no text stored')}/>}/>
-                            <Route path='/lazy-test' component={LazyTest}/>
+                            <Route
+                                path='/'
+                                exact={true}
+                                render={(props) => <Home initialText={camelCaseIt('no text stored')} />}
+                            />
+                            <Route
+                                path='/lazy-test'
+                                component={LazyTest}
+                            />
                         </Switch>
                     </>
                 </Router>
@@ -46,6 +52,5 @@ class App extends React.Component<AppProps> {
         )
     }
 }
-
 
 export default hot(App);

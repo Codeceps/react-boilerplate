@@ -61,6 +61,8 @@
     "stylelint": "9.10.0",
     "stylelint-config-recommended-scss": "3.2.0",
     "stylelint-scss": "3.5.1",
+    "tslint": "5.12.1",
+    "tslint-react": "3.6.0",
     "uglifyjs-webpack-plugin": "2.1.1",
     "webpack": "4.28.4",
     "webpack-cli": "3.2.1",
