@@ -3,7 +3,7 @@
   "author": "Codeceps <codeceps@gmail.com>",
   "description": "React boilerplate",
   "private": true,
-  "version": "0.0.1",
+  "version": "1.0.0",
   "scripts": {
     "start": "cross-env NODE_ENV=development webpack-dev-server",
     "build": "cross-env NODE_ENV=production webpack",
