@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Home /> should have valid snapshot 1`] = `
+<div>
+  <h2
+    id="home-title"
+  >
+    Stored text: 
+    
+  </h2>
+  <form
+    onSubmit={[Function]}
+  >
+    <input
+      className="centered-widget"
+      onChange={[Function]}
+      placeholder="Enter text"
+      type="text"
+      value=""
+    />
+    <input
+      className="centered-widget"
+      type="submit"
+      value="Store text"
+    />
+  </form>
+</div>
+`;

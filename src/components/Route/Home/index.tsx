@@ -32,7 +32,7 @@ export default class Home extends React.Component<HomeProps, HomeState> {
     onSubmitListener = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
         this.setState({
-            storedText: this.state.inputText
+            storedText: this.state.inputText ? this.state.inputText : this.props.initialText
         });
     }
 

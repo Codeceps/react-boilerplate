@@ -1,0 +1,65 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<App /> should have valid snapshot 1`] = `
+<div>
+  <div
+    id="logo-container"
+  >
+    <img
+      id="logo-img"
+      src="test-file-stub"
+    />
+  </div>
+  <div
+    id="header-text"
+  >
+    
+  </div>
+  <div>
+    <ul
+      id="nav"
+    >
+      <li>
+        <a
+          href="/"
+          onClick={[Function]}
+        >
+          Home
+        </a>
+      </li>
+      <li>
+        <a
+          href="/lazy-test"
+          onClick={[Function]}
+        >
+          Lazy Test
+        </a>
+      </li>
+    </ul>
+  </div>
+  <div>
+    <h2
+      id="home-title"
+    >
+      Stored text: 
+      No Text Stored
+    </h2>
+    <form
+      onSubmit={[Function]}
+    >
+      <input
+        className="centered-widget"
+        onChange={[Function]}
+        placeholder="Enter text"
+        type="text"
+        value=""
+      />
+      <input
+        className="centered-widget"
+        type="submit"
+        value="Store text"
+      />
+    </form>
+  </div>
+</div>
+`;

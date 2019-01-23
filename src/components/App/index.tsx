@@ -8,6 +8,8 @@ import NavBar from '../NavBar';
 import {Home, LazyTest} from '../Route';
 import './App.scss';
 
+import {camelCaseIt} from '../../util/CamelCaser';
+
 
 export interface AppProps {
     message: string
@@ -35,7 +37,7 @@ class App extends React.Component<AppProps> {
                     <>
                         <NavBar/>
                         <Switch>
-                            <Route path='/' exact={true} component={() => <Home initialText="None"/>}/>
+                            <Route path='/' exact={true} component={() => <Home initialText={camelCaseIt('no text stored')}/>}/>
                             <Route path='/lazy-test' component={LazyTest}/>
                         </Switch>
                     </>

@@ -1,6 +1,13 @@
+/*
+    NODE_ENV environment variable is set to 'test' by Jest
+    Use it to enable transpiling of ES modules to CommonJS modules
+*/
+const testEnv = process.env.NODE_ENV === 'test'
+
 const presets = [
     ['@babel/preset-env', {
-        debug: true,
+        debug: testEnv ? false : true,
+        modules: testEnv ? 'auto' : false,
         useBuiltIns: 'usage'
     }],
     '@babel/preset-react',
